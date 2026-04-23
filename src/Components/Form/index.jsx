@@ -1,9 +1,21 @@
 import "./Form.css";
-const Form = () => {
+const Form = ({setCitas, citas}) => {
+  const setcitas2 = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const cita ={
+      nombre: form.mascota.value,
+      dueño: form.propietario.value,
+      fecha: form.fecha.value,
+      hora: form.hora.value,
+      sintoma: form.sintomas.value
+    }
+    setCitas([...citas, cita])
+  }
   return (
     <div className="one-half column">
       <h2>Crear mi Cita</h2>
-      <form>
+      <form onSubmit={setcitas2}>
         <label>Nombre Mascota</label>
         <input type="text" name="mascota" className="u-full-width" placeholder="Nombre Mascota" />
 
