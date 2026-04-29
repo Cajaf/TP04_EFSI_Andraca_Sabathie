@@ -3,7 +3,7 @@ import "./administradorCitas.css";
 
 const AdministradorCitas = ({ citas, setCitas }) => {
      const eliminarCita = (nombre) => {
-  const nuevasCitas = citas.filter(cita => cita.nombre !== nombreMascota);
+  const nuevasCitas = citas.filter(cita => cita.nombre !== nombre);
   setCitas(nuevasCitas);
   }
   return (
@@ -11,6 +11,7 @@ const AdministradorCitas = ({ citas, setCitas }) => {
       <h2>Administra tus citas</h2>
       {citas.map((element, index) => (
         <Cita
+          key={index}
           nombre={element.nombre}
           dueño={element.dueño}
           fecha={element.fecha}
